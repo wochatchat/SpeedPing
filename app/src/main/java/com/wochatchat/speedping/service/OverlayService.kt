@@ -299,9 +299,12 @@ class OverlayService : Service() {
         blinking = false
         handler.removeCallbacks(blinkTick)
         // 复原
-        rootView?.background = getDrawable(R.drawable.bg_overlay)
-        tvDownload.setTextColor(getColorById(R.color.float_download))
-        tvUpload.setTextColor(getColorById(R.color.float_upload))
+        androidx.core.content.ContextCompat.getDrawable(this, R.drawable.bg_overlay)
+            ?.let { rootView?.background = it }
+        tvDownload.setTextColor(
+            androidx.core.content.ContextCompat.getColor(this, R.color.float_download))
+        tvUpload.setTextColor(
+            androidx.core.content.ContextCompat.getColor(this, R.color.float_upload))
     }
 
     private fun tickBlink() {
@@ -312,18 +315,15 @@ class OverlayService : Service() {
             tvDownload.setTextColor(Color.parseColor("#FFEF4444"))
             tvUpload.setTextColor(Color.parseColor("#FFEF4444"))
         } else {
-            rootView?.background = getDrawable(R.drawable.bg_overlay)
-            tvDownload.setTextColor(getColorById(R.color.float_download))
-            tvUpload.setTextColor(getColorById(R.color.float_upload))
+            androidx.core.content.ContextCompat.getDrawable(this, R.drawable.bg_overlay)
+                ?.let { rootView?.background = it }
+            tvDownload.setTextColor(
+                androidx.core.content.ContextCompat.getColor(this, R.color.float_download))
+            tvUpload.setTextColor(
+                androidx.core.content.ContextCompat.getColor(this, R.color.float_upload))
         }
         handler.postDelayed(blinkTick, BLINK_PERIOD_MS)
     }
-
-    private fun getDrawable(res: Int) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-        getDrawable(res) else @Suppress("DEPRECATION") getResources().getDrawable(res)
-
-    private fun getColorById(res: Int) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        getColor(res) else @Suppress("DEPRECATION") getResources().getColor(res)
 
     private fun bgDrawable(color: Int): android.graphics.drawable.Drawable {
         val d = android.graphics.drawable.GradientDrawable().apply {
