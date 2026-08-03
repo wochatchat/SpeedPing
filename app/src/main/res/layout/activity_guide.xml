@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFF6F6F8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/guide_padding">
+
+        <!-- 顶部标题 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/guide_title"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/guide_title"
+            android:textStyle="bold" />
+
+        <!-- 品牌 icon 提示 -->
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_speedping_logo"
+            android:contentDescription="@string/guide_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="18dp"
+            android:text="@string/guide_subtitle"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/guide_subtitle" />
+
+        <!-- 步骤：悬浮窗权限 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/guide_card_gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/guide_card_pad">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_alert_title"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/guide_step_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/step_alert_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/guide_step_desc" />
+
+            <Button
+                android:id="@+id/btnAlert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_primary"
+                android:text="@string/step_action_alert"
+                android:textColor="#FFFFFFFF"
+                android:textSize="@dimen/guide_btn_text" />
+        </LinearLayout>
+
+        <!-- 步骤：电池优化 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/guide_card_gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/guide_card_pad">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_battery_title"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/guide_step_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/step_battery_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/guide_step_desc" />
+
+            <Button
+                android:id="@+id/btnBattery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_primary"
+                android:text="@string/step_action_battery"
+                android:textColor="#FFFFFFFF"
+                android:textSize="@dimen/guide_btn_text" />
+        </LinearLayout>
+
+        <!-- 步骤：通知 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/guide_card_gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/guide_card_pad">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_notif_title"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/guide_step_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/step_notif_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/guide_step_desc" />
+
+            <Button
+                android:id="@+id/btnNotif"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_primary"
+                android:text="@string/step_action_notif"
+                android:textColor="#FFFFFFFF"
+                android:textSize="@dimen/guide_btn_text" />
+        </LinearLayout>
+
+        <!-- 步骤：第三方自启动 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/guide_card_gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/guide_card_pad">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_autostart_title"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/guide_step_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/step_autostart_desc"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/guide_step_desc" />
+
+            <Button
+                android:id="@+id/btnAutostart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_primary"
+                android:text="@string/step_action_autostart"
+                android:textColor="#FFFFFFFF"
+                android:textSize="@dimen/guide_btn_text" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- 提示 -->
+        <TextView
+            android:id="@+id/tvTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="@string/guide_tip"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- 启动 / 停止 按钮 -->
+        <Button
+            android:id="@+id/btnStartStop"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/btn_primary"
+            android:text="@string/guide_start"
+            android:textColor="#FFFFFFFF"
+            android:textSize="@dimen/guide_btn_text"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+    </LinearLayout>
+</ScrollView>

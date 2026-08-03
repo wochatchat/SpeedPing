@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 上行箭头（红→实际用蓝） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="10dp"
+    android:height="10dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path android:fillColor="@color/float_upload"
+        android:pathData="M12,2 L20,12 L14,12 L14,22 L10,22 L10,12 L4,12 Z" />
+</vector>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 警告图标：ping 不通时使用 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="18dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M12,2 L1,22 L23,22 Z" />
+    <path android:fillColor="#EF4444"
+        android:pathData="M12,8 L12,14 M12,17.5 L12,18" />
+    <path android:fillColor="#EF4444"
+        android:pathData="M12,2 L1,22 L23,22 Z M12,9 l0,6 l1,0 l0,-6 Z M12,17 l0,1 l1,0 l0,-1 Z" />
+</vector>

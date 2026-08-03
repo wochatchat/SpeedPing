@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 百度小图标（简化：蓝色熊掌印外形 + b 字） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="18dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path android:fillColor="#2932E1"
+        android:pathData="M10,22 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0 M16,14 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0 M2,26 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0" />
+    <path android:fillColor="#2932E1"
+        android:pathData="M16,24 C9,24 6,30 6,36 C6,42 11,46 16,46 C21,46 26,42 26,36 C26,30 23,24 16,24 Z" />
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M16,29 c3,0 5,3 5,0 c0,-2 -2,-4 -5,-4 c-3,0 -5,2 -5,4 c0,3 2,0 5,0 Z" />
+</vector>

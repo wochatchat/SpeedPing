@@ -1,0 +1,15 @@
+# Gradle
+.gradle/
+build/
+*/build/
+
+# 本地 SDK
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# 不要把原始 key material 意外打包到 apk
+app/src/main/assets/speedping.*

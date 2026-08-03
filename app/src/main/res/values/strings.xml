@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SpeedPing</string>
+
+    <!-- 引导页 -->
+    <string name="guide_title">SpeedPing · 网速悬浮窗</string>
+    <string name="guide_subtitle">桌面实时显示网速 + 网络可达性</string>
+
+    <!-- 步骤卡片 -->
+    <string name="step_alert_title">显示在其它应用上层</string>
+    <string name="step_alert_desc">允许 SpeedPing 创建悬浮窗，否则无法在桌面显示。</string>
+    <string name="step_action_alert">授予悬浮窗权限</string>
+    <string name="step_action_done_alert">已授予悬浮窗权限</string>
+
+    <string name="step_battery_title">关闭电池优化（保活）</string>
+    <string name="step_battery_desc">加入电池白名单，避免系统自动杀掉悬浮窗服务。</string>
+    <string name="step_action_battery">关闭电池优化</string>
+    <string name="step_action_done_battery">已在白名单</string>
+
+    <string name="step_notif_title">允许通知（前台保活）</string>
+    <string name="step_notif_desc">Android 8+ 前台服务需要通知渠道，允许后才能持续运行。</string>
+    <string name="step_action_notif">允许通知</string>
+
+    <string name="step_autostart_title">允许自启动</string>
+    <string name="step_autostart_desc">部分品牌（小米/华为/OPPO/vivo 等）需手动放行，否则开机后不会自动恢复悬浮窗。</string>
+    <string name="step_action_autostart">前往自启动设置</string>
+
+    <!-- 底部按钮 -->
+    <string name="guide_start">启动悬浮窗</string>
+    <string name="guide_stop">停止并隐藏悬浮窗</string>
+    <string name="guide_tip">权限授予后，悬浮窗会出现在桌面顶部。可长按拖动，双击折叠/展开。</string>
+
+    <!-- 悬浮窗通知 -->
+    <string name="notif_channel">SpeedPing 悬浮窗保活</string>
+    <string name="notif_channel_desc">用于保持网速悬浮窗持续运行，不会主动打扰你。</string>
+    <string name="notif_title">SpeedPing 正在运行</string>
+    <string name="notif_text">网速悬浮窗已显示，可长按拖动。</string>
+    <string name="notif_stop">停止</string>
+
+    <!-- 维度资源数组 -->
+    <string-array name="vendor_autostart_pkgs">
+        <item>com.miui.securitycenter</item>
+        <item>com.huawei.systemmanager</item>
+        <item>com.coloros.safecenter</item>
+        <item>com.iqoo.secure</item>
+        <item>com.meizu.mgts.security</item>
+        <item>com.samsung.android.lool</item>
+    </string-array>
+
+    <string-array name="vendor_autostart_acts">
+        <item>com.miui.permcenter.autostart.AutoStartManagementActivity</item>
+        <item>com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity</item>
+        <item>com.coloros.safecenter.permission.startup.StartupAppListActivity</item>
+        <item>com.iqoo.secure.ui.phoneoptimize.BgStartUpManager</item>
+        <item>com.meizu.mgts.security.SecurityMainActivity</item>
+        <item>com.samsung.android.sm.battery.BatteryActivity</item>
+    </string-array>
+</resources>

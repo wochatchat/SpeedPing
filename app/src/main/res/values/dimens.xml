@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 引导页 -->
+    <dimen name="guide_padding">24dp</dimen>
+    <dimen name="guide_card_gap">12dp</dimen>
+    <dimen name="guide_card_radius">16dp</dimen>
+    <dimen name="guide_card_pad">16dp</dimen>
+    <dimen name="guide_title">22sp</dimen>
+    <dimen name="guide_subtitle">13sp</dimen>
+    <dimen name="guide_step_title">16sp</dimen>
+    <dimen name="guide_step_desc">13sp</dimen>
+    <dimen name="guide_btn_radius">14dp</dimen>
+    <dimen name="guide_btn_text">15sp</dimen>
+
+    <!-- 悬浮窗 -->
+    <dimen name="float_bg_radius">16dp</dimen>
+    <dimen name="float_text_speed">13sp</dimen>
+    <dimen name="float_text_status">10sp</dimen>
+    <dimen name="float_pad_h">12dp</dimen>
+    <dimen name="float_pad_v">8dp</dimen>
+</resources>

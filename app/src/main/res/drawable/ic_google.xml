@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Google 小图标：简化彩色 G -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="18dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path android:fillColor="#4285F4"
+        android:pathData="M45.12,24.5 c0,-1.56 -0.14,-3.06 -0.4,-4.5 L24,20 v8.5 h11.94 c-0.52,2.7 -2.06,5 -4.4,6.54 v5.44 h7.12 c4.18,-3.86 6.46,-9.54 6.46,-16 Z" />
+    <path android:fillColor="#34A853"
+        android:pathData="M24,44 c5.94,0 10.94,-1.96 14.6,-5.32 l-7.12,-5.44 c-1.96,1.32 -4.48,2.1 -7.48,2.1 c-5.74,0 -10.6,-3.88 -12.34,-9.1 H6.32 v5.62 C9.96,39.6 16.54,44 24,44 Z" />
+    <path android:fillColor="#FBBC05"
+        android:pathData="M11.66,26.18 C11.24,24.94 11,23.62 11,22.24 c0,-1.38 0.24,-2.7 0.66,-3.94 L6.32,12.68 C4.84,15.6 4,18.82 4,22.24 c0,3.42 0.84,6.64 2.32,9.56 l5.34,-5.62 Z" />
+    <path android:fillColor="#EA4335"
+        android:pathData="M24,10.5 c3.24,0 6.14,1.12 8.42,3.3 l6.3,-6.3 C34.94,3.94 29.94,2 24,2 16.54,2 9.96,6.4 6.32,12.68 l5.34,5.62 C13.4,14.38 18.26,10.5 24,10.5 Z" />
+</vector>

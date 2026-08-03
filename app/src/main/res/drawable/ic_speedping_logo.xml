@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SpeedPing logo：一个仪表盘 + 信号波 的组合 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- 表盘外圈 -->
+    <path android:fillColor="#3B82F6"
+        android:pathData="M24,5 C13.5,5 5,13.5 5,24 C5,34.5 13.5,43 24,43 C34.5,43 43,34.5 43,24 C43,13.5 34.5,5 24,5 Z M24,39 C15.7,39 9,32.3 9,24 C9,15.7 15.7,9 24,9 C32.3,9 39,15.7 39,24 C39,32.3 32.3,39 24,39 Z" />
+    <!-- 指针 -->
+    <path android:fillColor="#22C55E"
+        android:pathData="M24,24 L32,14 A14,14 0 0,0 10,20 Z" />
+    <!-- 中心点 -->
+    <path android:fillColor="#111111"
+        android:pathData="M24,22 m-2.5,0 a2.5,2.5 0 1,0 5,0 a2.5,2.5 0 1,0 -5,0" />
+    <!-- 信号波 -->
+    <path android:fillColor="#EF4444"
+        android:pathData="M37,8 c1.2,-0.8 2.8,0 3,1.5 l0.5,3.2 c0.2,1.4 -1.2,2.4 -2.4,1.8 L36,13 c-1.2,-0.6 -1.1,-2.6 1,-5 Z" />
+</vector>
