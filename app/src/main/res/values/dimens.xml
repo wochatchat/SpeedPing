@@ -12,10 +12,10 @@
     <dimen name="guide_btn_radius">14dp</dimen>
     <dimen name="guide_btn_text">15sp</dimen>
 
-    <!-- 悬浮窗 -->
-    <dimen name="float_bg_radius">16dp</dimen>
-    <dimen name="float_text_speed">13sp</dimen>
-    <dimen name="float_text_status">10sp</dimen>
-    <dimen name="float_pad_h">12dp</dimen>
-    <dimen name="float_pad_v">8dp</dimen>
+    <!-- 悬浮窗：整体更紧凑，特别是高度 -->
+    <dimen name="float_bg_radius">12dp</dimen>
+    <dimen name="float_text_speed">10sp</dimen>
+    <dimen name="float_text_status">9sp</dimen>
+    <dimen name="float_pad_h">8dp</dimen>
+    <dimen name="float_pad_v">4dp</dimen>
 </resources>

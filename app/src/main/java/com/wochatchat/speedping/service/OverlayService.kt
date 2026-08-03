@@ -60,6 +60,7 @@ class OverlayService : Service() {
 
     // ---- 可达性探测 ----
     private val PROBE_PERIOD_MS = 30_000L
+    private val LONG_PRESS_MS = 500L
     private val speedTick = Runnable { tickSpeed() }
     private val probeTick = Runnable { tickProbe() }
     private val blinkTick = Runnable { tickBlink() }
@@ -195,7 +196,8 @@ class OverlayService : Service() {
 
         attachTouchListener(params)
         try { wm.addView(root, params) } catch (_: Throwable) {}
-        // 首屏直接探测一次
+        // 首屏：先按当前环境固定图标（避免短时空白），随后由探测结果接管
+        showInitialIcon()
         handler.post(probeTick)
         lastTimestamp = SystemClock.elapsedRealtime()
         lastRxBytes = Traffic.bytes()
@@ -203,31 +205,45 @@ class OverlayService : Service() {
     }
 
     private fun attachTouchListener(params: WindowManager.LayoutParams) {
-        var startX = 0; var startY = 0; var rawX = 0f; var rawY = 0f
+        var startX = 0; var startY = 0; var rawX = 0f; rawY = 0f
         var moved = false
+        var longPressHandled = false
         var lastClick = 0L
+
+        // 长按 Runnable：500ms 不抬手且没拖动则触发重启
+        val longPressTick = Runnable {
+            if (!moved && !longPressHandled) {
+                longPressHandled = true
+                restartSelf()
+            }
+        }
+
         root.setOnTouchListener { _, e ->
             when (e.action) {
                 MotionEvent.ACTION_DOWN -> {
                     startX = params.x; startY = params.y
                     rawX = e.rawX; rawY = e.rawY; moved = false
+                    longPressHandled = false
+                    handler.postDelayed(longPressTick, LONG_PRESS_MS)
                     true
                 }
                 MotionEvent.ACTION_MOVE -> {
                     val dx = (e.rawX - rawX).toInt()
                     val dy = (e.rawY - rawY).toInt()
                     if (dx * dx + dy * dy > 25) {
+                        moved = true
+                        handler.removeCallbacks(longPressTick)
                         params.x = startX + dx; params.y = startY + dy
                         try { wm.updateViewLayout(root, params) } catch (_: Throwable) {}
-                        moved = true
                     }
                     true
                 }
                 MotionEvent.ACTION_UP -> {
-                    if (!moved) {
+                    handler.removeCallbacks(longPressTick)
+                    if (!moved && !longPressHandled) {
                         val now = SystemClock.uptimeMillis()
                         if (now - lastClick < 300) {
-                            // 双击 -> 折叠/展开，略：直接跳回引导页
+                            // 双击 -> 打开引导页
                             val i = Intent(this, GuideActivity::class.java)
                                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(i)
@@ -236,9 +252,21 @@ class OverlayService : Service() {
                     }
                     false
                 }
+                MotionEvent.ACTION_CANCEL -> {
+                    handler.removeCallbacks(longPressTick)
+                    false
+                }
                 else -> false
             }
         }
+    }
+
+    /** 长按图标触发：重启悬浮窗服务（立即重探测当前网络环境）。 */
+    private fun restartSelf() {
+        try {
+            stopService(Intent(this, OverlayService::class.java))
+        } catch (_: Throwable) {}
+        OverlayService.start(this)
     }
 
     // ---------------- 周期任务 ----------------
@@ -278,11 +306,30 @@ class OverlayService : Service() {
     }
 
     private fun applyPingResult(r: PingResult) {
-        val icon = when {
-            !r.reachable -> R.drawable.ic_warn
-            r.source == PingResult.Source.BAIDU -> R.drawable.ic_baidu
-            r.source == PingResult.Source.GOOGLE -> R.drawable.ic_google
-            else -> R.drawable.ic_warn
+        // 图标始终跟随当前网络环境：
+        //   直连 → 百度 / VPN → Google / 失败也是当前环境对应那一个（变色由闪烁处理）
+        val icon = when (NetUtil.expectedSource(this)) {
+            PingResult.Source.BAIDU -> R.drawable.ic_baidu
+            PingResult.Source.GOOGLE -> R.drawable.ic_google
+            else -> R.drawable.ic_baidu
+        }
+        ivStatus.setImageResource(icon)
+        // 让图标同时参与"闪动"：失败时让图标整体染红色
+        if (r.reachable) {
+            ivStatus.clearColorFilter()
+        } else {
+            ivStatus.colorFilter = android.graphics.PorterDuffColorFilter(
+                Color.parseColor("#FFEF4444"), android.graphics.PorterDuff.Mode.SRC_IN
+            )
+        }
+    }
+
+    /** 启动首屏：先按当前环境显示正确图标，再异步探测结果回填。 */
+    private fun showInitialIcon() {
+        val icon = when (NetUtil.expectedSource(this)) {
+            PingResult.Source.BAIDU -> R.drawable.ic_baidu
+            PingResult.Source.GOOGLE -> R.drawable.ic_google
+            else -> R.drawable.ic_baidu
         }
         ivStatus.setImageResource(icon)
     }
@@ -298,13 +345,14 @@ class OverlayService : Service() {
     private fun stopBlinking() {
         blinking = false
         handler.removeCallbacks(blinkTick)
-        // 复原
+        // 复原：背景、文字颜色与图标滤镜
         androidx.core.content.ContextCompat.getDrawable(this, R.drawable.bg_overlay)
             ?.let { rootView?.background = it }
         tvDownload.setTextColor(
             androidx.core.content.ContextCompat.getColor(this, R.color.float_download))
         tvUpload.setTextColor(
             androidx.core.content.ContextCompat.getColor(this, R.color.float_upload))
+        ivStatus.clearColorFilter()
     }
 
     private fun tickBlink() {

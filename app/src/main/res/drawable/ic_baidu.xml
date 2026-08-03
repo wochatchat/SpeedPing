@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 百度小图标（简化：蓝色熊掌印外形 + b 字） -->
+<!-- 百度：蓝圈 + 中心白圆（一眼与 Google 区分） -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="18dp"
-    android:height="18dp"
+    android:width="16dp"
+    android:height="16dp"
     android:viewportWidth="48"
     android:viewportHeight="48">
-    <path android:fillColor="#2932E1"
-        android:pathData="M10,22 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0 M16,14 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0 M2,26 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0" />
-    <path android:fillColor="#2932E1"
-        android:pathData="M16,24 C9,24 6,30 6,36 C6,42 11,46 16,46 C21,46 26,42 26,36 C26,30 23,24 16,24 Z" />
-    <path android:fillColor="#FFFFFFFF"
-        android:pathData="M16,29 c3,0 5,3 5,0 c0,-2 -2,-4 -5,-4 c-3,0 -5,2 -5,4 c0,3 2,0 5,0 Z" />
+
+    <!-- 蓝色外圈 -->
+    <path
+        android:fillColor="#2932E1"
+        android:pathData="M24,2 C11.85,2 2,11.85 2,24 C2,36.15 11.85,46 24,46 C36.15,46 46,36.15 46,24 C46,11.85 36.15,2 24,2 Z" />
+
+    <!-- 中心白色圆 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M24,13 C18.48,13 14,17.48 14,23 L14,25 C14,30.52 18.48,35 24,35 C29.52,35 34,30.52 34,25 L34,23 C34,17.48 29.52,13 24,13 Z" />
 </vector>

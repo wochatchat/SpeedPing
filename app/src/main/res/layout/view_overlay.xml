@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 悬浮窗：[可达性图标] [下行↓ / 上行↑] 紧凑两行；
+     图标紧贴悬浮窗左侧，几乎无留白 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     android:layout_width="wrap_content"
@@ -6,24 +8,25 @@
     android:background="@drawable/bg_overlay"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingHorizontal="@dimen/float_pad_h"
+    android:paddingLeft="4dp"
+    android:paddingRight="@dimen/float_pad_h"
     android:paddingVertical="@dimen/float_pad_v">
 
     <!-- 可达性图标 -->
     <ImageView
         android:id="@+id/ivStatus"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
         android:contentDescription="@null"
         android:src="@drawable/ic_baidu" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="6dp"
         android:orientation="vertical">
 
-        <!-- 上行 -->
+        <!-- 第一行：下行（↓） -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,33 +34,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="9dp"
-                android:layout_height="9dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_arrow_up" />
-
-            <TextView
-                android:id="@+id/tvUpload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:fontFamily="monospace"
-                android:text="0.0K/s"
-                android:textColor="@color/float_upload"
-                android:textSize="@dimen/float_text_speed" />
-        </LinearLayout>
-
-        <!-- 下行 -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="9dp"
-                android:layout_height="9dp"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_arrow_down" />
 
@@ -67,8 +45,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
                 android:fontFamily="monospace"
-                android:text="0.0K/s"
+                android:text="0K/s"
                 android:textColor="@color/float_download"
+                android:textSize="@dimen/float_text_speed" />
+        </LinearLayout>
+
+        <!-- 第二行：上行（↑） -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_arrow_up" />
+
+            <TextView
+                android:id="@+id/tvUpload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="monospace"
+                android:text="0K/s"
+                android:textColor="@color/float_upload"
                 android:textSize="@dimen/float_text_speed" />
         </LinearLayout>
     </LinearLayout>
