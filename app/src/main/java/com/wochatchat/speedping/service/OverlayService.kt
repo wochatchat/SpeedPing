@@ -205,7 +205,7 @@ class OverlayService : Service() {
     }
 
     private fun attachTouchListener(params: WindowManager.LayoutParams) {
-        var startX = 0; var startY = 0; var rawX = 0f; rawY = 0f
+        var startX = 0; var startY = 0; var rawX = 0f; var rawY = 0f
         var moved = false
         var longPressHandled = false
         var lastClick = 0L
