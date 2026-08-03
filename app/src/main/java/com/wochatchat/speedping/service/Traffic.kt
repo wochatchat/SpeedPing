@@ -8,13 +8,17 @@ import android.net.TrafficStats
  * 若不支持返回 0（行为：网速显示为 0，不会再报错）。
  */
 object Traffic {
+    /** 下行总字节；不支持时返回 0。 */
     fun bytes(): Long {
-        if (TrafficStats.UNSUPPORTED == TrafficStats.getTotalRxBytes()) return 0L
-        return TrafficStats.getTotalRxBytes()
+        val v = TrafficStats.getTotalRxBytes()
+        if (v == TrafficStats.UNSUPPORTED || v < 0) return 0L
+        return v
     }
 
+    /** 上行总字节；不支持时返回 0。 */
     fun txBytes(): Long {
-        if (TrafficStats.UNSUPPORTED == TrafficStats.getTotalTxBytes()) return 0L
-        return TrafficStats.getTotalTxBytes()
+        val v = TrafficStats.getTotalTxBytes()
+        if (v == TrafficStats.UNSUPPORTED || v < 0) return 0L
+        return v
     }
 }
